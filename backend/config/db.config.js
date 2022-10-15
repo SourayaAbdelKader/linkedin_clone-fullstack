@@ -1,13 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose")
 
-const db = ()=>{
-    mongoose.connect('mongodb://127.0.0.1:27017/linkedin')
-    .then(()=>{
-        console.log("Database Connected")
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
-}
-
-module.exports = db;
+mongoose.connect(process.env.DATABASE_URL)
+.then(()=>{
+    console.log("database connected")
+})
+.catch(err=>{
+    console.log("database error: ", err)
+})
