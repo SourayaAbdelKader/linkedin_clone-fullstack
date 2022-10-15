@@ -4,6 +4,11 @@ app.use(express.json());
 require('dotenv').config();
 require('./config/db.config');
 
+const authRoutes = require('./routes/auth.routes');
+app.use('/auth', authRoutes);
+
+const userRoutes = require('./routes/users.routes');
+app.use('/users', userRoutes);
 
 app.listen(process.env.PORT, (err)=>{
     if(err) throw err;
