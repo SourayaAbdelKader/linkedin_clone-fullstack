@@ -7,6 +7,7 @@ const Qualification = require('../models/qualifications.model');
 const Follow = require('../models/follow.model');
 const Application = require('../models/applications.model');const Job = require('../models/jobs.model');
 
+// functions related to the user info (user model) 
 const getAllUsers = async (req, res)=>{
     const users = await User.find();
     res.json(users);
@@ -41,6 +42,15 @@ const updateUser = async (req, res)=>{
     .catch((err)=>res.status(400).send(err))
 }
 
+const deleteUser = async (req, res)=>{
+    const {id} = req.body
+    UserModel.findByIdAndRemove(id)
+    .then((user)=>res.send(user))
+    .catch(err=>res.status(400).send('Error'));
+}
+
+
+// functions related to the user education (education model) 
 const addEducation = async (req, res)=>{
     Education.create(req.body)
     .then((education)=>res.send(education))
@@ -62,6 +72,14 @@ const updateEducation = async (req, res)=>{
     .catch((err)=>res.status(400).send(err))
 }
 
+const deleteEducation= async (req, res)=>{
+    const {id} = req.body
+    Education.findByIdAndRemove(id)
+    .then((education)=>res.send(education))
+    .catch(err=>res.status(400).send('Error'));
+}
+
+// functions related to the user experience (experience model) 
 const addExperience = async (req, res)=>{
     Experience.create(req.body)
     .then((experience)=>res.send(experience))
@@ -84,6 +102,14 @@ const updateExperience = async (req, res)=>{
     .catch((err)=>res.status(400).send(err));
 }
 
+const deleteExperience = async (req, res)=>{
+    const {id} = req.body
+    Experience.findByIdAndRemove(id)
+    .then((experience)=>res.send(experience))
+    .catch(err=>res.status(400).send('Error'));
+}
+
+// functions related to the user qualifications (qualification model) 
 const addQualifications = async (req, res)=>{
     Qualification.create(req.body)
     .then((qualification)=>res.send(qualification))
@@ -105,27 +131,6 @@ const updateQualification = async (req, res)=>{
     .catch((err)=>res.status(400).send(err));
 }
 
-const deleteUser = async (req, res)=>{
-    const {id} = req.body
-    UserModel.findByIdAndRemove(id)
-    .then((user)=>res.send(user))
-    .catch(err=>res.status(400).send('Error'));
-}
-
-const deleteEducation= async (req, res)=>{
-    const {id} = req.body
-    Education.findByIdAndRemove(id)
-    .then((education)=>res.send(education))
-    .catch(err=>res.status(400).send('Error'));
-}
-
-const deleteExperience = async (req, res)=>{
-    const {id} = req.body
-    Experience.findByIdAndRemove(id)
-    .then((experience)=>res.send(experience))
-    .catch(err=>res.status(400).send('Error'));
-}
-
 const deleteQualification = async (req, res)=>{
     const {id} = req.body
     Qualification.findByIdAndRemove(id)
@@ -133,12 +138,7 @@ const deleteQualification = async (req, res)=>{
     .catch(err=>res.status(400).send('Error'));
 }
 
-const followCompany = async (req, res)=>{
-    Follow.create(req.body)
-    .then((follow)=>res.send(follow))
-    .catch(err=>res.status(400).send('Error'))
-}
-
+// a function to get all the user info from all the models
 const getAllUserDetails = async (req, res)=>{
     const {id} = req.params;
     const user = await User.findOne({id});
@@ -155,6 +155,11 @@ const applyForJob = async (req, res)=>{
     .catch(err=>res.status(400).send('Error'))
 }
 
+const followCompany = async (req, res)=>{
+    Follow.create(req.body)
+    .then((follow)=>res.send(follow))
+    .catch(err=>res.status(400).send('Error'))
+}
 
 module.exports = {
     getAllUsers,
