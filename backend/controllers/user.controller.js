@@ -83,13 +83,13 @@ const updateExperience = async (req, res)=>{
         still_working: data.still_working
     })
     .then((experience)=>res.send(experience))
-    .catch((err)=>res.status(400).send(err))
+    .catch((err)=>res.status(400).send(err));
 }
 
 const addQualifications = async (req, res)=>{
     Qualification.create(req.body)
     .then((qualification)=>res.send(qualification))
-    .catch(err=>res.status(400).send('Error'))
+    .catch(err=>res.status(400).send('Error'));
 }
 
 const updateQualification = async (req, res)=>{
@@ -104,31 +104,35 @@ const updateQualification = async (req, res)=>{
         still_working: data.still_working
     })
     .then((education)=>res.send(education))
-    .catch((err)=>res.status(400).send(err))
+    .catch((err)=>res.status(400).send(err));
 }
 
 const deleteUser = async (req, res)=>{
     const {id} = req.body
     UserModel.findByIdAndRemove(id)
-    .then((user)=>res.send(user));
+    .then((user)=>res.send(user))
+    .catch(err=>res.status(400).send('Error'));
 }
 
 const deleteEducation= async (req, res)=>{
     const {id} = req.body
     Education.findByIdAndRemove(id)
-    .then((education)=>res.send(education));
+    .then((education)=>res.send(education))
+    .catch(err=>res.status(400).send('Error'));
 }
 
 const deleteExperience = async (req, res)=>{
     const {id} = req.body
     Experience.findByIdAndRemove(id)
-    .then((experience)=>res.send(experience));
+    .then((experience)=>res.send(experience))
+    .catch(err=>res.status(400).send('Error'));
 }
 
 const deleteQualification = async (req, res)=>{
     const {id} = req.body
     Qualification.findByIdAndRemove(id)
-    .then((qualification)=>res.send(qualification));
+    .then((qualification)=>res.send(qualification))
+    .catch(err=>res.status(400).send('Error'));
 }
 
 const followCompany = async (req, res)=>{
@@ -147,6 +151,13 @@ const getAllUserDetails = async (req, res)=>{
     res.json(details);
 }
 
+const applyForJob = async (req, res)=>{
+    Application.create(req.body)
+    .then((application)=>res.send(application))
+    .catch(err=>res.status(400).send('Error'))
+}
+
+
 module.exports = {
     getAllUsers,
     getUserById,
@@ -163,5 +174,6 @@ module.exports = {
     deleteExperience,
     deleteQualification,
     followCompany,
-    getAllUserDetails
+    getAllUserDetails,
+    applyForJob
 }
