@@ -29,9 +29,22 @@ const addJob = async (req, res)=> {
     .catch(err=>res.status(400).send('Error'))
 }
 
+const getJobsByCompany = async (req, res)=> {
+    const {id} = req.params;
+    const job = await Job.find({company : id});
+    res.json(job);
+}
+
+const getJobs = async (req, res)=> {
+    const jobs = await Job.find();
+    res.json(jobs);
+}
+
 module.exports = {
     getAllCompanies,
     getCompanyrByEmail,
     getCompanyById,
-    addJob
+    addJob,
+    getJobsByCompany,
+    getJobs
 }
