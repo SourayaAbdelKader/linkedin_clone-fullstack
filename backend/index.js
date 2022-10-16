@@ -7,6 +7,9 @@ require('./config/db.config');
 const authRoutes = require('./routes/auth.routes');
 app.use('/auth', authRoutes);
 
+const authcompanyRoutes = require('./routes/authcompany.routes');
+app.use('/authcompany', authcompanyRoutes);
+
 const userRoutes = require('./routes/users.routes');
 app.use('/users', userRoutes);
 
