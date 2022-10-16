@@ -1,10 +1,9 @@
 const {Router} = require('express');
 const {viewApplicants, getAllCompanies, getCompanyById, getCompanyrByEmail, addJob, getJobsByCompany, getJobs, searchJob} = require('../controllers/companies.controller');
-const authMiddleware = require('../middlewares/auth.middleware');
-//const adminMiddleware = require('../middlewares/admin.middleware');
+const authCompanyMiddleware = require('../middlewares/auth.middleware');
 const router = Router();
 
-router.get('/', authMiddleware, getAllCompanies);
+router.get('/', authCompanyMiddleware, getAllCompanies);
 router.get('/company/:id', getCompanyById);
 router.get('/company/:email', getCompanyrByEmail);
 router.post('/job', addJob);

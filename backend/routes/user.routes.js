@@ -20,4 +20,5 @@ router.delete('/', deleteQualification);
 router.post('/follow', followCompany);
 router.get('/details/:id', getAllUserDetails);
 router.post('/apply', applyForJob);
+
 module.exports = router;

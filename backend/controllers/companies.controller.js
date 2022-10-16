@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-const User = require('../models/users.model');
 const Company = require('../models/companies.model');
 const Application = require('../models/applications.model');
 const Job = require('../models/jobs.model');
 
+// get the company information
 const getAllCompanies = async (req, res)=>{
     const companies = await Company.find();
     res.json(companies);
@@ -22,6 +22,7 @@ const getCompanyrByEmail = async (req, res)=>{
     res.json(company);
 }
 
+// functions related to jobs
 const addJob = async (req, res)=> {
     Job.create(req.body)
     .then((job)=>res.send(job))
