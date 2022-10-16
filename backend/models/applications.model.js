@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'), Schema = mongoose.Schema;
 const Job = require('../models/jobs.model.js');
 const User = require('../models/users.model.js');
 
