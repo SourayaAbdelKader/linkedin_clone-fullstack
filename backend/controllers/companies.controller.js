@@ -23,8 +23,15 @@ const getCompanyrByEmail = async (req, res)=>{
     res.json(company);
 }
 
+const addJob = async (req, res)=> {
+    Job.create(req.body)
+    .then((job)=>res.send(job))
+    .catch(err=>res.status(400).send('Error'))
+}
+
 module.exports = {
     getAllCompanies,
     getCompanyrByEmail,
-    getCompanyById
+    getCompanyById,
+    addJob
 }
