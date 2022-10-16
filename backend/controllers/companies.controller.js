@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const User = require('../models/users.model');
 const Company = require('../models/companies.model');
-const Follow = require('../models/follow.model');
 const Application = require('../models/applications.model');
 const Job = require('../models/jobs.model');
 
@@ -40,11 +39,18 @@ const getJobs = async (req, res)=> {
     res.json(jobs);
 }
 
+const searchJob = async (req, res)=> {
+    const {word} = req.params;
+    const jobs = await Job.find({title : word});
+    res.json(jobs);
+}
+
 module.exports = {
     getAllCompanies,
     getCompanyrByEmail,
     getCompanyById,
     addJob,
     getJobsByCompany,
-    getJobs
+    getJobs,
+    searchJob
 }
