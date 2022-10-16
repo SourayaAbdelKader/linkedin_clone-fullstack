@@ -4,10 +4,8 @@ const User = require('../models/users.model');
 const Education = require('../models/education.model');
 const Experience = require('../models/experience.model');
 const Qualification = require('../models/qualifications.model');
-const Company = require('../models/companies.model');
 const Follow = require('../models/follow.model');
-const Application = require('../models/applications.model');
-const Job = require('../models/jobs.model');
+const Application = require('../models/applications.model');const Job = require('../models/jobs.model');
 
 const getAllUsers = async (req, res)=>{
     const users = await User.find();

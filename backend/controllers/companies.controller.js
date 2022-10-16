@@ -45,6 +45,12 @@ const searchJob = async (req, res)=> {
     res.json(jobs);
 }
 
+const viewApplicants = async (req, res)=> {
+    const {id} = req.params;
+    const application = await Application.find({job: id});
+    res.json(application);
+}
+
 module.exports = {
     getAllCompanies,
     getCompanyrByEmail,
@@ -52,5 +58,6 @@ module.exports = {
     addJob,
     getJobsByCompany,
     getJobs,
-    searchJob
+    searchJob,
+    viewApplicants
 }

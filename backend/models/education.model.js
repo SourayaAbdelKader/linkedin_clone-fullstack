@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'), Schema = mongoose.Schema;
-const User = require('../models/users.model.js');
+const User = require('../models/users.model');
 
 const educationSchema = new mongoose.Schema({
     user: {type: Schema.Types.ObjectId, ref: 'User'},

@@ -1,7 +1,6 @@
 const {Router} = require('express');
 const {applyForJob, getAllUsers, getUserById, getAllUserDetails, updateUser, deleteUser, getUserByEmail, addEducation, addExperience, addQualifications, updateEducation, updateQualification, updateExperience, deleteEducation, deleteExperience, deleteQualification, followCompany} = require('../controllers/user.controller');
 const authMiddleware = require('../middlewares/auth.middleware');
-//const adminMiddleware = require('../middlewares/admin.middleware');
 const router = Router();
 
 router.get('/', authMiddleware, getAllUsers);
