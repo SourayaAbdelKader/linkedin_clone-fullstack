@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {getAllUsers, getUserById, updateUser, deleteUser, getUserByEmail, addEducation, addExperience, addQualifications, updateEducation, updateQualification, updateExperience, deleteEducation, deleteExperience, deleteQualification, followCompany} = require('../controllers/user.controller');
+const {getAllUsers, getUserById, getAllUserDetails, updateUser, deleteUser, getUserByEmail, addEducation, addExperience, addQualifications, updateEducation, updateQualification, updateExperience, deleteEducation, deleteExperience, deleteQualification, followCompany} = require('../controllers/user.controller');
 const authMiddleware = require('../middlewares/auth.middleware');
 //const adminMiddleware = require('../middlewares/admin.middleware');
 const router = Router();
@@ -19,5 +19,6 @@ router.delete('/', deleteEducation);
 router.delete('/', deleteExperience);
 router.delete('/', deleteQualification);
 router.post('/follow', followCompany);
+router.get('/details/:id', getAllUserDetails);
 
 module.exports = router;

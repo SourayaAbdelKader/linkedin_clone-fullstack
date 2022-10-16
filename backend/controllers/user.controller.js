@@ -136,7 +136,16 @@ const followCompany = async (req, res)=>{
     .then((follow)=>res.send(follow))
     .catch(err=>res.status(400).send('Error'))
 }
-const getAllUserDetails = (req, res)=>{}
+
+const getAllUserDetails = async (req, res)=>{
+    const {id} = req.params;
+    const user = await User.findOne({id});
+    const education = await Education.find({user : id});
+    const experience = await Experience.find({user : id});
+    const qualifications = await Qualification.find({user : id});
+    const details = {"user": user, "education": education, "experience": experience, "qualifications":qualifications };
+    res.json(details);
+}
 
 module.exports = {
     getAllUsers,
@@ -153,5 +162,6 @@ module.exports = {
     deleteEducation,
     deleteExperience,
     deleteQualification,
-    followCompany
+    followCompany,
+    getAllUserDetails
 }
