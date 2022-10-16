@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Education = require('../models/education.model.js');
 
 const userSchema = new mongoose.Schema({
     name: {type: String, required: 'name is required', trim: true},

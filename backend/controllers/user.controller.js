@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const User = require('../models/users.model');
+const Education = require('../models/education.model');
+const Experience = require('../models/experience.model');
+const Qualification = require('../models/qualifications.model');
 const Company = require('../models/companies.model');
 const Follow = require('../models/follow.model');
 const Application = require('../models/applications.model');
@@ -41,7 +44,9 @@ const updateUser = async (req, res)=>{
 }
 
 const addEducation = async (req, res)=>{
-
+    Education.create(req.body)
+    .then((education)=>res.send(education))
+    .catch(err=>res.status(400).send('Error'))
 }
 
 const addExperience = async (req, res)=>{

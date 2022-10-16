@@ -13,6 +13,6 @@ const experienceSchema = new mongoose.Schema({
     still_working : {type: String, enum: ['yes', 'no'], default:"no", trim: true}
 });
 
-const model = mongoose.model('Education', experienceSchema);
+const model = mongoose.model('Experience', experienceSchema);
 
 module.exports = model;

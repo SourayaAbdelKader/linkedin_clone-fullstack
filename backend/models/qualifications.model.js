@@ -11,6 +11,6 @@ const qualificationSchema = new mongoose.Schema({
     enddate: {type: Date}
 });
 
-const model = mongoose.model('Education', qualificationSchema);
+const model = mongoose.model('Qualification', qualificationSchema);
 
 module.exports = model;
