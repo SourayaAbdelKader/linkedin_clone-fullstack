@@ -3,9 +3,11 @@ const {viewApplicants, getAllCompanies, getCompanyById, getCompanyrByEmail, addJ
 const authCompanyMiddleware = require('../middlewares/auth.middleware');
 const router = Router();
 
+// routes related to the company
 router.get('/', authCompanyMiddleware, getAllCompanies);
 router.get('/company/:id', getCompanyById);
 router.get('/company/:email', getCompanyrByEmail);
+// routes related to jobs and applications
 router.post('/job', addJob);
 router.get('/job/:id', getJobsByCompany);
 router.get('/jobs', getJobs);
