@@ -10,7 +10,7 @@ const experienceSchema = new mongoose.Schema({
     location: {type: String, trim: true},
     startdate: {type: Date},
     enddate: {type: Date},
-    still_working : {type: String, enum: ['yes', 'no'], default:"no", trim: true}
+    still_working: {type: String, enum: ['yes', 'no'], default:"no", trim: true}
 });
 
 const model = mongoose.model('Experience', experienceSchema);

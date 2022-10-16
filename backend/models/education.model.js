@@ -2,7 +2,7 @@ const mongoose = require('mongoose'), Schema = mongoose.Schema;
 const User = require('../models/users.model.js');
 
 const educationSchema = new mongoose.Schema({
-    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
     school: {type: String, required: 'school is required', trim: true},
     degree: {type: String, required: 'degree is required', trim: true},
     field: {type: String, trim: true},

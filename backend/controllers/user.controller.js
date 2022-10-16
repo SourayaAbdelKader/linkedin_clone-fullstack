@@ -49,16 +49,62 @@ const addEducation = async (req, res)=>{
     .catch(err=>res.status(400).send('Error'))
 }
 
+const updateEducation = async (req, res)=>{
+    const {id, ...data} = req.body
+    Education.findByIdAndUpdate(id,{
+        school: data.school,
+        degree: data.degree,
+        field: data.field,
+        grade: data.grade,
+        startdate: data.startdate,
+        enddate: data.enddate,
+        gratuated: data.gratuated,
+    })
+    .then((education)=>res.send(education))
+    .catch((err)=>res.status(400).send(err))
+}
+
 const addExperience = async (req, res)=>{
-
+    Experience.create(req.body)
+    .then((experience)=>res.send(experience))
+    .catch(err=>res.status(400).send('Error'))
 }
 
-const addSkills = async (req, res)=>{
-
+const updateExperience = async (req, res)=>{
+    const {id, ...data} = req.body
+    Experience.findByIdAndUpdate(id,{
+        company: data.company,
+        title: data.title,
+        employement_type: data.employement_type,
+        description: data.description,
+        startdate: data.startdate,
+        enddate: data.enddate,
+        location: data.location,
+        still_working: data.still_working
+    })
+    .then((experience)=>res.send(experience))
+    .catch((err)=>res.status(400).send(err))
 }
 
-const addLanguages = async (req, res)=>{
+const addQualifications = async (req, res)=>{
+    Qualification.create(req.body)
+    .then((qualification)=>res.send(qualification))
+    .catch(err=>res.status(400).send('Error'))
+}
 
+const updateQualification = async (req, res)=>{
+    const {id, ...data} = req.body
+    Qualification.findByIdAndUpdate(id,{
+        company: data.company,
+        title: data.title,
+        description: data.description,
+        startdate: data.startdate,
+        enddate: data.enddate,
+        location: data.location,
+        still_working: data.still_working
+    })
+    .then((education)=>res.send(education))
+    .catch((err)=>res.status(400).send(err))
 }
 
 const deleteUser = async (req, res)=>{
@@ -67,11 +113,45 @@ const deleteUser = async (req, res)=>{
     .then((user)=>res.send(user));
 }
 
+const deleteEducation= async (req, res)=>{
+    const {id} = req.body
+    Education.findByIdAndRemove(id)
+    .then((education)=>res.send(education));
+}
+
+const deleteExperience = async (req, res)=>{
+    const {id} = req.body
+    Experience.findByIdAndRemove(id)
+    .then((experience)=>res.send(experience));
+}
+
+const deleteQualification = async (req, res)=>{
+    const {id} = req.body
+    Qualification.findByIdAndRemove(id)
+    .then((qualification)=>res.send(qualification));
+}
+
+const followCompany = async (req, res)=>{
+    Follow.create(req.body)
+    .then((follow)=>res.send(follow))
+    .catch(err=>res.status(400).send('Error'))
+}
+const getAllUserDetails = (req, res)=>{}
+
 module.exports = {
     getAllUsers,
     getUserById,
     updateUser,
     deleteUser,
     getUserByEmail,
-    addEducation
+    addEducation,
+    addExperience,
+    addQualifications,
+    updateEducation,
+    updateExperience,
+    updateQualification,
+    deleteEducation,
+    deleteExperience,
+    deleteQualification,
+    followCompany
 }
