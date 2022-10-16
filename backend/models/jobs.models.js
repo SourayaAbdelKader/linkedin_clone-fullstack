@@ -1,5 +1,5 @@
+const mongoose = require('mongoose');
 const Company = require('../models/company.model.js');
-const mongoose = require('mongoose'), Schema = mongoose.Schema;
 
 const jobSchema = new mongoose.Schema({
     company : { type: Schema.Types.ObjectId, ref: 'Company' },
