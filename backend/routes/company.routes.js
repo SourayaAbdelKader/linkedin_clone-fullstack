@@ -5,7 +5,7 @@ const router = Router();
 
 // routes related to the company
 router.get('/', authCompanyMiddleware, getAllCompanies);
-router.get('/company/:id', getCompanyById);
+router.get('/company/:id', authCompanyMiddleware, getCompanyById);
 router.get('/company/:email', getCompanyrByEmail);
 // routes related to jobs and applications
 router.post('/job', addJob);

@@ -4,22 +4,22 @@ const authMiddleware = require('../middlewares/auth.middleware');
 const router = Router();
 // routes related to the user
 router.get('/', authMiddleware, getAllUsers);
-router.get('/:id', getUserById);
+router.get('/:id', authMiddleware, getUserById);
 router.get('/:email', getUserByEmail);
-router.put('/', updateUser);
-router.delete('/', deleteUser);
+router.put('/', authMiddleware, updateUser);
+router.delete('/', authMiddleware, deleteUser);
 // routes related to the user's education
-router.post('/education', addEducation);
-router.put('/', updateEducation);
-router.delete('/', deleteEducation);
+router.post('/education', authMiddleware, addEducation);
+router.put('/', authMiddleware, updateEducation);
+router.delete('/', authMiddleware, deleteEducation);
 // routes related to the user's qualifications
-router.post('/experience', addQualifications);
-router.put('/', updateQualification);
-router.delete('/', deleteQualification);
+router.post('/experience', authMiddleware, addQualifications);
+router.put('/', authMiddleware, updateQualification);
+router.delete('/', authMiddleware, deleteQualification);
 // routes related to the user's experience
-router.post('/experience', addExperience);
-router.put('/', updateExperience);
-router.delete('/', deleteExperience);
+router.post('/experience', authMiddleware, addExperience);
+router.put('/', authMiddleware, updateExperience);
+router.delete('/', authMiddleware, deleteExperience);
 // other routes
 router.post('/follow', followCompany);
 router.get('/details/:id', getAllUserDetails);
