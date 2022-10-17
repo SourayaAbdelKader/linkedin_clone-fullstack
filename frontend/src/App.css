@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://media.edpevent.se/2019/02/linkedin-2-1024x743-e1550646529500.jpg");
+  background-repeat: no-repeat;
+}
+
+.choices{
+  margin-left: 50vw;
+}
+
+button {
+  padding: 1vw;
+  width: 15vw;
+  height: 10vh;
+  margin-bottom: 1vw;
+  border-radius: 25px;
+  border: 0cm;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.25s ease-out;
+}
+
+button:hover{
+  opacity: 0.8;
+}
+
+.blue_button {
+  background-color: #457b9d;
+}
+
+.dark_blue_button {
+  background-color: #1d3557;
+}
+

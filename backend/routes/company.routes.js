@@ -4,7 +4,7 @@ const authCompanyMiddleware = require('../middlewares/authcompany.middleware');
 const router = Router();
 
 // routes related to the company
-router.get('/', authCompanyMiddleware, authCompanyMiddleware, getAllCompanies);
+router.get('/', getAllCompanies);
 router.get('/company/:id', getCompanyById);
 router.get('/company/:email', getCompanyrByEmail);
 // routes related to jobs and applications
